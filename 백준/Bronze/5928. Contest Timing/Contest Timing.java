@@ -1,0 +1,1 @@
+import java.util.*;interface Main{static void main(String[]z){Scanner s=new Scanner(System.in);int totM=(s.nextInt()-11)*1440+(s.nextInt()-11)*60+s.nextInt()-11;System.out.println(totM<0?-1:totM);}}
