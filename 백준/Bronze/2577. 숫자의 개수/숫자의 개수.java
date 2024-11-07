@@ -1,0 +1,1 @@
+import java.util.*;class Main{public static void main(String[]a){Scanner s=new Scanner(System.in);String p=" "+(s.nextInt()*s.nextInt()*s.nextInt())+" ";for(int i=0;i<10;++i)System.out.println(p.indexOf(""+i)>0?p.split(""+i).length-1:0);}}
