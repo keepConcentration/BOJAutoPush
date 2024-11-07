@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){int a=new java.util.Scanner(System.in).nextInt()-1;System.out.print(a*(a-1)*(a-2)/6);}}
