@@ -1,0 +1,1 @@
+interface Main{public static void main(String[]z){System.out.print(new java.util.Scanner(System.in).next().length());}}
