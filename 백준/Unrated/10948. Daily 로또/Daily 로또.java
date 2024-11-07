@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){System.out.print("10 35 39 40 41 42");}}
