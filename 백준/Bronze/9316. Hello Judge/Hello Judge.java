@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){int i=new java.util.Scanner(System.in).nextInt(),j=1;for(;j<=i;++j){System.out.println("Hello World, Judge "+j+"!");}}}
