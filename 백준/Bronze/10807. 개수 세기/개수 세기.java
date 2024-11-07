@@ -1,0 +1,1 @@
+import java.util.*;interface Main{public static void main(String[]a){Scanner s=new Scanner(System.in);s.nextLine();List<String>l=Arrays.asList(s.nextLine().split(" "));String t=s.nextLine();System.out.print(l.stream().filter(i->i.equals(t)).count());}}
