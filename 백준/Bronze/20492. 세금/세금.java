@@ -1,0 +1,1 @@
+interface Main{static void main(String[]b){int a=new java.util.Scanner(System.in).nextInt()/1000;System.out.print(a*780+" "+a*956);}}
