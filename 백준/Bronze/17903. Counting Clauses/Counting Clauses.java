@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){System.out.print(new java.util.Scanner(System.in).nextInt() < 8 ? "unsatisfactory" : "satisfactory");}}
