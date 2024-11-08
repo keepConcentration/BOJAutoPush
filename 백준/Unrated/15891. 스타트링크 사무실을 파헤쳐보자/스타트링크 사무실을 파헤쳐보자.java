@@ -1,0 +1,1 @@
+interface Main{static void main(String[]a){int[]b={0,65,17,4,4,64};System.out.print(b[new java.util.Scanner(System.in).nextInt()]);}}
