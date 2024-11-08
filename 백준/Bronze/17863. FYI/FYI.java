@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){System.out.print(new java.util.Scanner(System.in).next().substring(0,3).equals("555")?"YES":"NO");}}
