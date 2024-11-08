@@ -1,0 +1,1 @@
+class Main{public static void main(String[]z){System.out.print("         ,r'\"7\nr`-_   ,'  ,/\n \\. \". L_r'\n   `~\\/\n      |\n      |");}}
