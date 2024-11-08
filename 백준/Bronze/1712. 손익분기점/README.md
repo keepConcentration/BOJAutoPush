@@ -1,4 +1,4 @@
-# [Silver IV] 손익분기점 - 1712
+# [Bronze II] 손익분기점 - 1712
 
 [문제 링크](https://www.acmicpc.net/problem/1712) 
 
