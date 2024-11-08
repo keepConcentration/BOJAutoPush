@@ -1,0 +1,1 @@
+import java.util.*;interface Main{static void main(String[]z){Scanner s=new Scanner(System.in);System.out.print(5*(s.nextInt()+s.nextInt()+s.nextInt()+s.nextInt()+s.nextInt()+s.nextInt()));}}
