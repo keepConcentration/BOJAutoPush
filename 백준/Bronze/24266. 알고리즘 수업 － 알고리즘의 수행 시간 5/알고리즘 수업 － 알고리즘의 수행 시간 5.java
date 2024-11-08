@@ -1,0 +1,1 @@
+interface Main{static void main(String[]z){long a=new java.util.Scanner(System.in).nextLong();System.out.print(a*a*a+"\n3");}}
