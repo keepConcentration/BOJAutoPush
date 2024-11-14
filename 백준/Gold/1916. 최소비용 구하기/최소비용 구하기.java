@@ -13,8 +13,6 @@ public class Main {
 
     static Long[] result;
 
-    static int[] edges;
-
     static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
@@ -26,7 +24,6 @@ public class Main {
 
         adjacencyList = new ArrayList[N + 1];
         result = new Long[N + 1];
-        edges = new int[N + 1];
         visited = new boolean[N + 1];
 
         for (int i = 1; i <= N; ++i) {
@@ -39,7 +36,6 @@ public class Main {
             int endNode = parseInt(strArr[1]);
             int price = parseInt(strArr[2]);
             adjacencyList[startNode].add(new int[]{endNode, price});
-            edges[endNode]++;
         }
 
         String[] strArr = br.readLine().split(" ");
@@ -64,14 +60,12 @@ public class Main {
                 if (visited[nextNode]) {
                     continue;
                 }
-                if (result[nextNode] == null) {
-                    result[nextNode] = cost + nextPrice;
-                } else {
+                if (result[nextNode] != null) {
                     if (result[nextNode] <= cost + nextPrice) {
                         continue;
                     }
-                    result[nextNode] = cost + nextPrice;
                 }
+                result[nextNode] = cost + nextPrice;
                 queue.offer(new Node(nextNode, result[nextNode]));
             }
         }
