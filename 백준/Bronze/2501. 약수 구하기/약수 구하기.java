@@ -9,8 +9,8 @@ interface Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String[] in = br.readLine().split(" ");
-
         br.close();
+        
         int N = Integer.parseInt(in[0]);
         int k = Integer.parseInt(in[1]);
 
