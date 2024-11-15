@@ -1,9 +1,11 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+        
         String result = "";
         String param = "";
         while (!(param = br.readLine()).equals("0 0")) {
@@ -11,14 +13,17 @@ public class Main {
             int a = Integer.parseInt(arr[0]);
             int b = Integer.parseInt(arr[1]);
             if (a % b == 0) {
-                result += "multiple";
+                sb.append("multiple\n");
             } else if (b % a == 0) {
-                result += "factor";
+                sb.append("factor\n");
             } else {
-                result += "neither";
+                sb.append("neither\n");
             }
-            result += "\n";
         }
-        System.out.print(result);
+
+        br.close();
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
     }
 }
