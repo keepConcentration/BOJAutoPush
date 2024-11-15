@@ -74,12 +74,8 @@ public class Main {
 
             String str = "";
             while (!queue.isEmpty()) {
-                if (queue.size() > 1) {
-                    sb.append("IMPOSSIBLE\n");
-                    continue t;
-                }
                 int poll = queue.poll();
-                str += poll + " ";
+                sb.append(poll).append(" ");
 
                 for (int adjacencyNode : adjacencyList[poll]) {
                     edges[adjacencyNode]--;
@@ -88,7 +84,7 @@ public class Main {
                     }
                 }
             }
-            sb.append(str).append("\n");
+            sb.append("\n");
 
         }
         br.close();
