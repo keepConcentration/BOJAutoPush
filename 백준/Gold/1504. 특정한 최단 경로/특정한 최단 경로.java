@@ -48,67 +48,16 @@ public class Main {
       adjacencyList[endNode].add(new int[]{startNode, weight});
     }
 
-    toFirstNodeResult[1] = 0;
-
     strArr = br.readLine().split(" ");
     int target1 = parseInt(strArr[0]);
     int target2 = parseInt(strArr[1]);
-
-    Queue<int[]> queue = new LinkedList<>();
-    queue.offer(new int[]{1, 0});
-
-    while (!queue.isEmpty()) {
-      int[] poll = queue.poll();
-      int node = poll[0];
-      int weight = poll[1];
-
-      for (int[] adjacencyNode : adjacencyList[node]) {
-        int nextNode = adjacencyNode[0];
-        int nextWeight = adjacencyNode[1] + weight;
-        if (toFirstNodeResult[nextNode] > nextWeight) {
-          queue.offer(new int[]{nextNode, nextWeight});
-          toFirstNodeResult[nextNode] = nextWeight;
-        }
-      }
-    }
-    firstToLastResult = new int[N + 1];
-    Arrays.fill(firstToLastResult, Integer.MAX_VALUE);
-    queue.offer(new int[]{target1, 0});
-    firstToLastResult[target1] = 0;
-    while (!queue.isEmpty()) {
-      int[] poll = queue.poll();
-      int node = poll[0];
-      int weight = poll[1];
-
-      for (int[] adjacencyNode : adjacencyList[node]) {
-        int nextNode = adjacencyNode[0];
-        int nextWeight = adjacencyNode[1] + weight;
-        if (firstToLastResult[nextNode] > nextWeight) {
-          queue.offer(new int[]{nextNode, nextWeight});
-          firstToLastResult[nextNode] = nextWeight;
-        }
-      }
-    }
-
-    secondToLastResult = new int[N + 1];
-    Arrays.fill(secondToLastResult, Integer.MAX_VALUE);
-    queue.offer(new int[]{target2, 0});
-    secondToLastResult[target2] = 0;
-    while (!queue.isEmpty()) {
-      int[] poll = queue.poll();
-      int node = poll[0];
-      int weight = poll[1];
-
-      for (int[] adjacencyNode : adjacencyList[node]) {
-        int nextNode = adjacencyNode[0];
-        int nextWeight = adjacencyNode[1] + weight;
-        if (secondToLastResult[nextNode] > nextWeight) {
-          queue.offer(new int[]{nextNode, nextWeight});
-          secondToLastResult[nextNode] = nextWeight;
-        }
-      }
-    }
-    if (E == 0 || firstToLastResult[N] == Integer.MAX_VALUE && secondToLastResult[N] == Integer.MAX_VALUE) {
+    
+    toFirstNodeResult = dijkstra(1);
+    firstToLastResult = dijkstra(target1);
+    secondToLastResult = dijkstra(target2);
+    
+    if (E == 0 || firstToLastResult[N] == Integer.MAX_VALUE
+        && secondToLastResult[N] == Integer.MAX_VALUE) {
       sb.append("-1\n");
     } else {
       sb.append(
@@ -121,5 +70,29 @@ public class Main {
     bw.write(sb.toString());
     bw.flush();
     bw.close();
+  }
+
+  private static int[] dijkstra(int start) {
+    int[] arr = new int[N + 1];
+    Arrays.fill(arr, Integer.MAX_VALUE);
+    Queue<int[]> queue = new LinkedList<>();
+    queue.offer(new int[]{start, 0});
+    arr[start] = 0;
+    while (!queue.isEmpty()) {
+      int[] poll = queue.poll();
+      int node = poll[0];
+      int weight = poll[1];
+
+      for (int[] adjacencyNode : adjacencyList[node]) {
+        int nextNode = adjacencyNode[0];
+        int nextWeight = adjacencyNode[1] + weight;
+
+        if (arr[nextNode] > nextWeight) {
+          queue.offer(new int[]{nextNode, nextWeight});
+          arr[nextNode] = nextWeight;
+        }
+      }
+    }
+    return arr;
   }
 }
