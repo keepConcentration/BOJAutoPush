@@ -17,14 +17,13 @@ public class Main {
         boolean click = false;
         int result = 0;
         for (int i = 0; i < N; ++i) {
-            double in = parseDouble(strArr[i]);
+            result += parseDouble(strArr[i]);
             if (strArr[i].indexOf(".5") != -1 && !click) {
-                result += parseDouble(strArr[i]) + 1;
+                result++;
                 click = true;
                 continue;
             }
             if (!strArr[i].equals("0")) {
-                result += parseDouble(strArr[i]);
                 click = true;
             }
         }
